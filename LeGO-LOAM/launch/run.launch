@@ -8,7 +8,16 @@
 
     <!--- TF -->
     <node pkg="tf" type="static_transform_publisher" name="camera_init_to_map"  args="0 0 0 1.570795   0        1.570795 /map    /camera_init 10" />
-    <node pkg="tf" type="static_transform_publisher" name="base_link_to_camera" args="0 0 0 -1.570795 -1.570795 0        /camera /base_link   10" />
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_camera" args="0 0 0 -1.570795 -1.570795 0        /camera /vlp16_merged   10" />
+
+    <node pkg="tf" type="static_transform_publisher" name="vlp16_merged_base_link_to_base_link" args="0.1 0.66 -0.0623 0 0 0 1  /vlp16_merged_base_link /base_link  10" />
+    <node pkg="tf" type="static_transform_publisher" name="vlp16_merged_to_vlp16_merged_base_link" args="0 0 -0.0377 0 0 0 1 /vlp16_merged /vlp16_merged_base_link  10" />
+
+
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_vlp16_starboard_base_link" args="-0.1 -1.32 0.0623 0 0 0 1  /base_link /vlp16_starboard_base_link 10" />
+    <node pkg="tf" type="static_transform_publisher" name="vlp16_starboard_base_link_to_vlp16_starboard" args="0 0 0.0377 0 0 0 1  /vlp16_starboard_base_link /vlp16_starboard 10" />
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_vlp16_port_base_link" args="-0.1 0 0.0623 0 0 0 1 /base_link /vlp16_port_base_link   10" />
+    <node pkg="tf" type="static_transform_publisher" name="vlp16_port_base_link_to_vlp16_port" args="0 0 0.0377 0 0 0 1  /vlp16_port_base_link /vlp16_port  10" />
 
     <!--- LeGO-LOAM -->    
     <node pkg="lego_loam" type="imageProjection"    name="imageProjection"    output="screen"/>
